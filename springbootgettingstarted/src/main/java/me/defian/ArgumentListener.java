@@ -1,5 +1,7 @@
 package me.defian;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.ApplicationArguments;
@@ -16,6 +18,14 @@ public class ArgumentListener implements ApplicationRunner {
     @Autowired
     Environment environment;
 
+    @Autowired
+    String hello;
+
+    @Autowired
+    private HyungchulProperties hyungchulProperties;
+
+    private Logger logger = LoggerFactory.getLogger(ArgumentListener.class);
+
     public ArgumentListener(ApplicationArguments applicationArguments) {
         System.out.println(applicationArguments.containsOption("foo"));
         System.out.println(applicationArguments.containsOption("bar"));
@@ -23,6 +33,13 @@ public class ArgumentListener implements ApplicationRunner {
 
     @Override
     public void run(ApplicationArguments args) throws Exception {
+
+        logger.debug("====================");
+        logger.debug(hello);
+        logger.debug("===========aaaar=========");
+
+        System.out.println("hyungchulProperties = " + hyungchulProperties.getFullname());
+        System.out.println("hello = " + hello);
         System.out.println("name = " + name);
         System.out.println("environment.getProperty(\"hyungchul.name\") = " + environment.getProperty("hyungchul.name"));
         System.out.println(environment.getProperty("hyungchul.fullname"));

@@ -3,6 +3,8 @@ package me.defian;
 //import org.apache.catalina.LifecycleException;
 //import org.apache.catalina.startup.Tomcat;
 //import org.apache.catalina.connector.Connector;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.Banner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.WebApplicationType;
@@ -32,10 +34,10 @@ import java.io.Writer;
 @RestController
 public class Application {
 
-    @GetMapping("/hello")
-    public String hello(){
-        return "Hello Spring";
-    }
+//    @GetMapping("/hello")
+//    public String hello(){
+//        return "Hello Spring";
+//    }
 
     public static void main(String[] args) {
 //        SpringApplication app = new SpringApplication(Application.class);
